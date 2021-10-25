@@ -13,6 +13,9 @@ def print_trace(*args, sep=' ', end='\n', file=None):
     :param file:类文件对象
     :return:
     """
+    if file:
+        origin_print(*args, sep, end, file)
+        return
     # noinspection PyProtectedMember, PyUnresolvedReferences
     file_name = sys._getframe().f_back.f_code.co_filename  # 获取调用函数所在的文件路径
     # noinspection PyProtectedMember, PyUnresolvedReferences
